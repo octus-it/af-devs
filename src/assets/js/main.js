@@ -30,9 +30,11 @@
       const isSticky = ud_header.classList.contains("sticky");
 
       logo.src = isDarkMode || isSticky
-        ? "assets/images/logo/logo-white.svg"
-        : "assets/images/logo/logo.svg";
+        ? "assets/images/logo/1.png"
+        : "assets/images/logo/2.png";
     }
+      // ? "assets/images/logo/logo-white.svg"
+      // : "assets/images/logo/logo.svg";
 
     // Gestion du bouton back-to-top
     if (backToTop) {
