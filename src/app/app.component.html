@@ -1,0 +1,5 @@
+<app-mobile-not-supported *ngIf="isMobile; else appContent"></app-mobile-not-supported>
+
+<ng-template #appContent>
+  <router-outlet />
+</ng-template>

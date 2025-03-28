@@ -1,0 +1,21 @@
+.mobile-message {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .mobile-message {
+    display: block;
+  }
+
+  /* Cachez le reste de l'application */
+  app-root > *:not(app-mobile-not-supported) {
+    display: none !important;
+  }
+}

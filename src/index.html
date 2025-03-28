@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <title>AfDevsProject</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Ajoutez ce meta immédiatement après <head> -->
+  <meta name="color-scheme" content="light dark">
+
+</head>
+<body>
+<app-root></app-root>
+
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // ==== Configuration Globale ====
+    const config = {
+      headerOffset: 73 // Ajustez cette valeur selon la hauteur de votre header
+    };
+
+    // ==== Vérification des Éléments ====
+    const checkRequiredElements = () => {
+      const requiredSelectors = [
+        '.ud-menu-scroll',
+        '.testimonial-carousel',
+        '.swiper-button-next',
+        '.swiper-button-prev'
+      ];
+
+      requiredSelectors.forEach(selector => {
+        if (!document.querySelector(selector)) {
+          console.warn(`Élément manquant: ${selector}`);
+        }
+      });
+    };
+
+    // ==== Gestion du Scroll ====
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('.ud-menu-scroll');
+      if (!sections.length) return;
+
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+      sections.forEach(section => {
+        const targetId = section.getAttribute('href');
+        if (!targetId) return;
+
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        try {
+          const targetTop = target.getBoundingClientRect().top + scrollPosition;
+          const targetHeight = target.offsetHeight;
+          const triggerPosition = scrollPosition + config.headerOffset;
+
+          if (triggerPosition >= targetTop && triggerPosition < targetTop + targetHeight) {
+            document.querySelectorAll('.ud-menu-scroll.active').forEach(el => {
+              el.classList.remove('active');
+            });
+            section.classList.add('active');
+          } else {
+            section.classList.remove('active');
+          }
+        } catch (error) {
+          console.error('Erreur dans handleScroll:', error);
+        }
+      });
+    };
+
+    // ==== Initialisation Swiper ====
+    const initSwiper = () => {
+      if (typeof Swiper === 'undefined') {
+        console.error('Swiper non chargé');
+        return null;
+      }
+
+      const swiperEl = document.querySelector('.testimonial-carousel');
+      if (!swiperEl) {
+        console.error('Container Swiper introuvable');
+        return null;
+      }
+
+      try {
+        return new Swiper(swiperEl, {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          breakpoints: {
+            640: { slidesPerView: 2, spaceBetween: 30 },
+            1024: { slidesPerView: 3, spaceBetween: 30 },
+            1280: { slidesPerView: 3, spaceBetween: 30 }
+          }
+        });
+      } catch (error) {
+        console.error('Erreur Swiper:', error);
+        return null;
+      }
+    };
+
+    // ==== Initialisation des Événements ====
+    const initEventListeners = () => {
+      // Menu Scroll
+      document.querySelectorAll('.ud-menu-scroll').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (!targetId) return;
+
+          const target = document.querySelector(targetId);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Scroll Listener
+      window.addEventListener('scroll', handleScroll);
+    };
+
+    // ==== Initialisation de l'Application ====
+    const initApp = () => {
+      checkRequiredElements();
+      initEventListeners();
+      const swiper = initSwiper();
+
+      if (!swiper) {
+        console.warn('Mode dégradé activé - Slider basique');
+        document.querySelector('.testimonial-carousel')?.classList.add('simple-slider');
+      }
+    };
+
+    // Démarrer l'application
+    initApp();
+  });
+</script>
+</body>
+</html>

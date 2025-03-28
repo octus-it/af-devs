@@ -1,0 +1,128 @@
+<div
+  class="absolute top-0 left-0 z-40 flex items-center w-full bg-transparent ud-header"
+>
+  <div class="container px-4 mx-auto">
+    <div class="relative flex items-center justify-between -mx-4">
+      <div class="max-w-full px-4 w-60">
+        <a [routerLink]="'/'" class="block w-full py-5 navbar-logo">
+          <img
+            src="/assets/images/logo/logo-white.svg"
+            alt="logo"
+            class="w-full header-logo"
+          />
+        </a>
+      </div>
+      <div class="flex items-center justify-between w-full px-4">
+        <div>
+          <button
+            id="navbarToggler"
+            class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
+          >
+                <span
+                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
+                ></span>
+            <span
+              class="relative my-[6px] block h-[2px] w-[30px] bg-white"
+            ></span>
+            <span
+              class="relative my-[6px] block h-[2px] w-[30px] bg-white"
+            ></span>
+          </button>
+          <nav
+            id="navbarCollapse"
+            class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg dark:bg-dark-2 lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:px-4 lg:py-0 lg:shadow-none dark:lg:bg-transparent xl:px-6"
+          >
+            <ul class="blcok lg:flex 2xl:ml-20">
+<!--              <li class="relative group">-->
+<!--                <a-->
+<!--                  href="#home"-->
+<!--                  class="flex py-2 mx-8 text-base font-medium ud-menu-scroll text-dark group-hover:text-primary dark:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70"-->
+<!--                >-->
+<!--                  o;jljil-->
+<!--                </a>-->
+<!--              </li>-->
+              <li class="relative group">
+                <a
+                  href="#about"
+                  class="flex py-2 mx-8 text-base font-medium ud-menu-scroll text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
+                >
+                  A Propos
+                </a>
+              </li>
+              <li class="relative group">
+                <a
+                  href="#jobs"
+                  class="flex py-2 mx-8 text-base font-medium ud-menu-scroll text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
+                >
+                  Offres d'emploies
+                </a>
+              </li>
+              <li class="relative group">
+                <a
+                  href="#team"
+                  class="flex py-2 mx-8 text-base font-medium ud-menu-scroll text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
+                >
+                  Teams
+                </a>
+              </li>
+              <li class="relative group">
+                <a
+                  href="#contact"
+                  class="flex py-2 mx-8 text-base font-medium ud-menu-scroll text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
+                >
+                  Contact
+                </a>
+              </li>
+              <li class="relative group">
+                <a
+                  href="https://blog.af-devs.org/"
+                  target="_blank"
+                  class="flex py-2 mx-8 text-base font-medium ud-menu-scroll text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
+                >
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="flex items-center justify-end pr-16 lg:pr-0">
+          <label class="inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              id="themeSwitcher"
+              class="sr-only"
+            >
+            <!-- Icônes soleil/lune -->
+            <span class="block text-white dark:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+</svg>
+
+            </span>
+                      <span class="hidden text-white dark:block">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+</svg>
+
+            </span>
+                    </label>
+
+          <div class="hidden sm:flex">
+            <a
+              [routerLink]="'login'"
+              class="loginBtn px-[22px] py-2 text-base font-medium text-white hover:opacity-70"
+            >
+              Se Connecter
+            </a>
+            <a
+              [routerLink]="'signup'"
+              class="px-6 py-2 text-base font-medium text-white duration-300 ease-in-out rounded-md bg-white/20 signUpBtn hover:bg-white/100 hover:text-dark"
+            >
+              S'inscrire
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

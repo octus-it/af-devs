@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+/* Custom styles */
+@layer components {
+  .ud-menu-scroll {
+    @apply cursor-pointer transition-colors;
+  }
+  .ud-menu-scroll.active {
+    @apply text-primary font-medium;
+  }
+}
+
+
+/* Fallback CSS si Swiper ne charge pas */
+.simple-slider {
+  @apply overflow-x-auto flex gap-8 pb-4;
+  scroll-snap-type: x mandatory;
+}
+
+.simple-slider .swiper-slide {
+  @apply flex-none w-full sm:w-1/2 lg:w-1/3;
+  scroll-snap-align: start;
+}
+
+//@import 'assets/css/tailwind.css';
+
