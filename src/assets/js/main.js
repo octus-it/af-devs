@@ -138,8 +138,8 @@
       const logo = document.querySelector('.header-logo');
       if (!logo) return;
       logo.src = isDark
-        ? "assets/images/logo/logo-white.svg"
-        : "assets/images/logo/logo.svg";
+        ? "assets/images/logo/1.png"
+        : "assets/images/logo/2.png";
     }
 
     themeSwitcher.addEventListener('change', (e) => {
